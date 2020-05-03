@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 22-Jul-2019 17:44:50 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+  <class catalog="brinsburyanimal" name="com.brinsburyanimal.beans.Fed" optimistic-lock="version" table="fed">
+    <id name="fedId" type="int">
+      <column name="fed_id"/>
+      <generator class="assigned"/>
+    </id>
+    <property name="food" type="string">
+      <column length="20" name="food"/>
+    </property>
+    <property name="amount" type="java.lang.Integer">
+      <column name="amount"/>
+    </property>
+    <property name="fruitVeg" type="string">
+      <column length="30" name="fruit_veg"/>
+    </property>
+    <property name="ate" type="java.lang.Boolean">
+      <column name="ate"/>
+    </property>
+    <property name="amountLeft" type="java.lang.Integer">
+      <column name="amount_left"/>
+    </property>
+    <set fetch="select" inverse="true" lazy="true" name="fishRecords" table="fish_record">
+      <key>
+        <column name="fed_id"/>
+      </key>
+      <one-to-many class="com.brinsburyanimal.beans.FishRecord"/>
+    </set>
+    <set fetch="select" inverse="true" lazy="true" name="birdMammalRecords" table="bird_mammal_record">
+      <key>
+        <column name="fed_id"/>
+      </key>
+      <one-to-many class="com.brinsburyanimal.beans.BirdMammalRecord"/>
+    </set>
+    <set fetch="select" inverse="true" lazy="true" name="herptileRecords" table="herptile_record">
+      <key>
+        <column name="fed_id"/>
+      </key>
+      <one-to-many class="com.brinsburyanimal.beans.HerptileRecord"/>
+    </set>
+  </class>
+</hibernate-mapping>

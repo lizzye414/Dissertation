@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 22-Jul-2019 17:44:50 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+  <class catalog="brinsburyanimal" name="com.brinsburyanimal.beans.Accommodation" optimistic-lock="version" table="accommodation">
+    <id name="accommId" type="int">
+      <column name="accomm_id"/>
+      <generator class="assigned"/>
+    </id>
+    <property name="area" type="string">
+      <column length="20" name="area"/>
+    </property>
+    <property name="number" type="java.lang.Integer">
+      <column name="number"/>
+    </property>
+    <set fetch="select" inverse="true" lazy="true" name="birdMammalRecords" table="bird_mammal_record">
+      <key>
+        <column name="accomm_id" not-null="true"/>
+      </key>
+      <one-to-many class="com.brinsburyanimal.beans.BirdMammalRecord"/>
+    </set>
+    <set fetch="select" inverse="true" lazy="true" name="animals" table="animal">
+      <key>
+        <column name="accomm_id"/>
+      </key>
+      <one-to-many class="com.brinsburyanimal.beans.Animal"/>
+    </set>
+    <set fetch="select" inverse="true" lazy="true" name="herptileRecords" table="herptile_record">
+      <key>
+        <column name="accomm_id" not-null="true"/>
+      </key>
+      <one-to-many class="com.brinsburyanimal.beans.HerptileRecord"/>
+    </set>
+    <set fetch="select" inverse="true" lazy="true" name="fishRecords" table="fish_record">
+      <key>
+        <column name="accomm_id" not-null="true"/>
+      </key>
+      <one-to-many class="com.brinsburyanimal.beans.FishRecord"/>
+    </set>
+  </class>
+</hibernate-mapping>

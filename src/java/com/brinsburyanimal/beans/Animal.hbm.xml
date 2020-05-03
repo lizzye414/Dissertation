@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 22-Jul-2019 17:44:50 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+  <class catalog="brinsburyanimal" name="com.brinsburyanimal.beans.Animal" optimistic-lock="version" table="animal">
+    <composite-id class="com.brinsburyanimal.beans.AnimalId" name="id">
+      <key-property name="latinName" type="string" >
+        <column length="30" name="latin_name"/>
+      </key-property>
+      <key-property name="animalName" type="string">
+        <column length="30" name="animal_name"/>
+      </key-property>
+    </composite-id>
+    <many-to-one class="com.brinsburyanimal.beans.Accommodation" fetch="select" name="accommodation">
+      <column name="accomm_id"/>
+    </many-to-one>
+    <many-to-one class="com.brinsburyanimal.beans.Species" fetch="select" insert="false" name="species" update="false">
+      <column length="30" name="latin_name" not-null="true"/>
+    </many-to-one>
+    <property name="idNo" type="string">
+      <column length="20" name="id_no"/>
+    </property>
+    <property name="dob" type="date">
+      <column length="10" name="dob"/>
+    </property>
+    <property name="sex" type="string">
+      <column length="2" name="sex"/>
+    </property>
+    <property name="distFeatures" type="string">
+      <column length="50" name="dist_features"/>
+    </property>
+    <property name="inCollection" type="java.lang.Boolean">
+      <column name="inCollection"/>
+    </property>
+    <set fetch="select" inverse="true" lazy="true" name="sloughs" table="slough">
+      <key>
+        <column length="30" name="latin_name" not-null="true"/>
+        <column length="30" name="animal_name" not-null="true"/>
+      </key>
+      <one-to-many class="com.brinsburyanimal.beans.Slough"/>
+    </set>
+    <set fetch="select" inverse="true" lazy="true" name="healthChecks" table="health_check">
+      <key>
+        <column length="30" name="latin_name" not-null="true"/>
+        <column length="30" name="animal_name" not-null="true"/>
+      </key>
+      <one-to-many class="com.brinsburyanimal.beans.HealthCheck"/>
+    </set>
+  </class>
+</hibernate-mapping>
