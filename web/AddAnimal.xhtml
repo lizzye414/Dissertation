@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Add Animal</title>
+        <h:outputStylesheet library="css" name="main.css"/>
+    </h:head>
+    <h:body>
+        <h1>Add An Animal</h1>
+
+        <h:form prependId="false">
+
+            <p>Latin name</p>
+            <h:selectOneMenu value="#{animal.latinName}" styleClass="Menu">
+                <f:selectItems id="animalLatinName"  value="#{species.getAllLatinNames()}" />
+            </h:selectOneMenu>
+
+            <p>Animal name</p>
+            <h:inputText id="AnimalName" value="#{animal.animalName}" styleClass="InputText" required="true"/><br></br>
+
+            <p>Accommodation</p>
+            <h:selectOneMenu value="#{animal.accommodation}" converter="AccommodationConverter" styleClass="Menu">
+                <f:selectItems id="animalAccommodation"  value="#{accommodation.getAllAccommodations()}" var="accommodation" itemLabel="#{accommodation.getIdentity()}"/>
+            </h:selectOneMenu>
+
+            <p>Identification (wing tag, ear tag etc.)</p>
+            <h:inputText id="AnimalIdent" value="#{animal.idNo}" styleClass="InputText"/><br></br>
+
+            <p>Date of birth (YYYY-MM-DD)</p>
+            <h:inputText id="DOB" value="#{animal.dob}" styleClass="InputText">
+                <f:convertDateTime pattern="yyyy-mm-dd" /> 
+            </h:inputText><br></br>
+
+            <p>Sex (M/F)</p>
+            <h:inputText id="sex" value="#{animal.sex}" styleClass="InputText"/><br></br>
+
+            <p>Distinguishing features</p>
+            <h:inputTextarea id="distFeat" value="#{animal.distFeatures}" styleClass="InputTextArea"/><br></br>
+            
+            <h:commandButton id="save" value="Save" action="#{animal.saveAnimal()}" styleClass="Button"/>
+
+        </h:form>
+    </h:body>
+</html>
+

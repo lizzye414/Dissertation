@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Bird Mammal Record</title>
+        <h:outputStylesheet library="css" name="record.css"/>
+    </h:head>
+    <h:body>
+        <h:form>
+            <h1>Daily Record #{userData.accommodation.area} #{userData.accommodation.number}</h1>
+        <h:selectOneRadio id="recordTime" value = "#{birdMammalRecord.recordTime}" styleClass="Radio"> 
+            <f:selectItem itemValue = "AM" itemLabel = "AM" /> 
+            <f:selectItem itemValue = "PM" itemLabel = "PM" />
+        </h:selectOneRadio><br></br> 
+        <p>Student name:</p>
+        <h:inputText id="studentName" value="#{birdMammalRecord.studentName}" styleClass="InputText"/>
+        <p>Enrichment added</p>
+        <h:inputText id="enrichment" value="#{birdMammalRecord.enrichment}" styleClass="InputText"/>
+        <p>Full clean?</p>
+        <h:selectBooleanCheckbox id="fullClean" value="#{birdMammalRecord.fullClean}" styleClass="Checkbox"/>
+        <p>Water changed?</p>
+        <h:selectBooleanCheckbox id="water" value="#{birdMammalRecord.water}" styleClass="Checkbox"/>
+        <p>Concrete swept?</p>
+        <h:selectBooleanCheckbox id="concrete" value="#{birdMammalRecord.concreteSwept}" styleClass="Checkbox"/>
+        <p>Security checked?</p>
+        <h:selectBooleanCheckbox id="security" value="#{birdMammalRecord.securityCheck}" styleClass="Checkbox"/>
+        <p>Weeding?</p>
+        <h:selectBooleanCheckbox id="weeding" value="#{birdMammalRecord.weeding}" styleClass="Checkbox"/>
+        <p>Comments</p>
+        <h:inputTextarea id="comments" value="#{birdMammalRecord.comments}" styleClass="InputTextArea"/>
+
+        <h:commandButton id="save" value="save" action="#{birdMammalRecord.saveRecord()}" styleClass="Button" />
+        
+        <div id="Image4">
+        <h:graphicImage height="100%" width="100%" id="BirdMammalPicture" library="pictures" name="#{birdMammalRecord.getPicture()}" />
+        </div> 
+
+        
+        
+        </h:form>
+        
+    </h:body>
+</html>
+

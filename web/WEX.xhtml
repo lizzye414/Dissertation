@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>WEX</title>
+        <h:outputStylesheet library="css" name="main.css"/>
+    </h:head>
+    <h:body>
+        <h1>WEX</h1>
+        
+        <h2>Select your area:</h2>
+        <h:form prependId="false">
+                      
+            <h:commandButton id="BirdsMammals" value="Birds or Mammals" action="BirdMammal?faces-redirect=true" styleClass="Button"/>
+            <h:commandButton id="Herptile" value="Herptiles" action="Herptile?faces-redirect=true" styleClass="Button"/>
+            <h:commandButton id="Fish" value="Fish" action="Fish?faces-redirect=true" styleClass="Button"/>
+            <h:commandButton id="Back" value="Back" action="index?faces-redirect=true" styleClass="Button"/>       
+        </h:form>
+        
+        <div id="Image1">
+        <h:graphicImage alt="Martha the llama on the animal centre" height="100%" width="100%" id="MarthaWEX" library="pictures" name="Martha.JPG" />
+        </div>
+        
+    </h:body>
+</html>
+

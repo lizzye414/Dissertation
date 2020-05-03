@@ -1,0 +1,116 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 21-Aug-2019, 12:57:22
+    Author     : Liz
+*/
+
+body {
+  background-color: #EDD1B0;
+}
+
+p{
+  font-family: arial;
+  color: darkolivegreen;
+  overflow: auto;
+}
+
+h1 {
+  color: darkolivegreen;
+  text-align: center;
+  font-family: arial;
+}
+
+h2 {
+  color: darkolivegreen;
+  font-family: arial;
+}
+
+.Button {
+    background-color: darkolivegreen;
+    text-align: center;
+    font-family: arial;
+    width: 20%;
+    display: block;
+    color:white;
+    margin: 20px;
+    height: 50px;
+    border-radius: 10px;
+    margin-top: 50px;
+   font-size: 20px;
+}
+
+.Button:hover {
+  background-color: #4CAF50; 
+  color: black;
+}
+
+.Menu{
+    background-color: lemonchiffon;
+    font-family: arial;
+    width: 20%;
+    display: block;
+    margin: 20px;
+    height: 50px;
+    border-radius: 10px;
+    margin-top: 50px;
+    font-size: 20px;
+    color: darkolivegreen;
+}
+
+#recordTime{
+  height: 2em;
+  width: 100%;
+  display: block;
+  margin: 20px;
+  border-radius: 5px;
+  font-family: arial;
+  color: darkolivegreen;
+  font-size: 20px;
+}
+
+.InputText{
+  height: 25px;
+  width: 25%;
+  display: block;
+  margin: 20px;
+  border-radius: 5px;
+  background-color: lemonchiffon;
+  overflow: auto;
+  font-family: arial;
+  color: darkolivegreen;
+  font-size: 20px;
+}
+
+.Checkbox{
+  height: 25px;
+  width: 25px;
+  display: block;
+  margin: 5px;
+  border-radius: 20px;
+  background-color: lemonchiffon;
+}
+
+.InputTextArea{
+  height: 25%;
+  width: 25%;
+  display: block;
+  margin: 20px;
+  border-radius: 5px;
+  background-color: lemonchiffon;
+  overflow: auto;
+  font-family: arial;
+  color: darkolivegreen;
+  font-size: 20px;  
+}
+
+#Image4{
+    position: absolute;
+    top: 10%;
+    right: 15%;
+    height: 50%;
+}
+

@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title>Home Page</title>
+        <h:outputStylesheet library="css" name="main.css"/>
+    </h:head>
+    <h:body>
+        <h1>Brinsbury Animal Centre</h1>
+        <h:form prependId="false">
+        <h:commandButton id="WEX" value="WEX" action="WEX?faces-redirect=true&amp;includeViewParams=true" styleClass="Button"/>
+        <h:commandButton id="Search" value="Search" action="Search?faces-redirect=true" styleClass="Button"/>
+        <h:commandButton id="CentreMgt" value="Centre Mgt" action="CentreMgt?faces-redirect=true&amp;includeViewParams=true" styleClass="Button"/>
+        <h:commandButton id="Graphing" value="Graphing" action="Graphing?faces-redirect=true" styleClass="Button"/>
+        <h:commandButton id="AnimalInfo" value="Animal Info" action="AnimalInfo?faces-redirect=true" styleClass="Button"/>
+        </h:form>
+        
+        <div id="Image1">
+        <h:graphicImage alt="Brinsbury Animal Centre" height="100%" width="100%" id="animalCentre" library="pictures" name="animalCentre.jpg" />
+        </div>
+        
+    </h:body>
+</html>
+

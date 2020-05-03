@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Add Species</title>
+        <h:outputStylesheet library="css" name="main.css"/>
+    </h:head>
+    <h:body>
+        <h1>Add Species</h1>
+        <h:form>
+            <p>Latin name</p>
+            <h:inputText id="latinName" value="#{species.latinName}" styleClass="InputText" required="true"/><br></br>
+            <p>Common Name</p>
+            <h:inputText id="commonName" value="#{species.commonName}" styleClass="InputText" required="true"/><br></br>
+            <p>Species information</p>
+            <h:inputTextarea id="info" value="#{species.info}" styleClass="InputTextArea"/><br></br>
+
+            <p>Feeding routine</p>
+            <h:selectOneMenu value="#{species.feeding}" converter="FeedingConverter" styleClass="Menu">
+                <f:selectItems id="speciesFeeding"  value="#{feeding.getAllFeedings()}" var="feeding" itemLabel="#{feeding.feedingId}"/>
+                </h:selectOneMenu>
+            
+            <p>Cleaning routine</p>
+            <h:selectOneMenu value="#{species.cleaning}" converter="CleaningConverter" styleClass="Menu">
+                <f:selectItems id="speciesCleaning"  value="#{cleaning.getAllCleanings()}" var="cleaning" itemLabel="#{cleaning.cleaningId}"/>
+                </h:selectOneMenu>
+            
+            
+            <div style="overflow-y:auto;">
+            <h:outputText escape="false" value="#{species.showSpecies()}" styleClass="Table1" />
+            </div>
+            
+            <div style="overflow-y:auto;">
+            <h:outputText escape="false" value="#{feeding.showFeeding()}" styleClass="Table2" />
+            </div>
+            
+            <div style="overflow-y:auto;">
+                <h:outputText escape="false" value="#{cleaning.showCleaning()}" styleClass="Table3" />
+            </div>
+
+
+            <h:commandButton id="save" value="Save" action="#{species.saveSpecies()}" styleClass="Button"/>
+            
+        </h:form>
+    </h:body>
+</html>
+

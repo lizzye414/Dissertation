@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Health Check</title>
+        <h:outputStylesheet library="css" name="main.css"/>
+    </h:head>
+    <h:body>
+        <h1>Health Check</h1>
+        <h:form>
+            <h2>Animal for health checking</h2>
+
+            <p>Species</p>
+            <h:selectOneMenu value="#{healthCheck.commonName}" styleClass="Menu">
+                <f:selectItems id="animalCommonName"  value="#{species.getAllCommonNames()}" />
+            </h:selectOneMenu>
+            
+            <p>Name</p>
+            <h:inputText id="animalNames" value="#{healthCheck.animalName}" styleClass="InputText"/>
+                       
+            <p>Weight (in g)</p>
+            <h:inputText id="weight" value="#{healthCheck.weight}" styleClass="InputText" onkeypress="if( (event.which &lt; 48 || event.which &gt; 57) ) return false;"/><br></br>
+            <p>Health issues</p>
+            <h:inputTextarea id="healthIssues" value="#{healthCheck.healthIssue}" styleClass="InputTextArea"/><br></br>
+            <p>Treatment</p>
+            <h:inputTextarea id="treatment" value="#{healthCheck.treatment}" styleClass="InputTextArea"/><br></br>
+
+            <h:commandButton id="save" value="Save" action="#{healthCheck.saveHealthCheck()}" styleClass="Button"/>
+
+
+        </h:form>
+    </h:body>
+</html>
+
